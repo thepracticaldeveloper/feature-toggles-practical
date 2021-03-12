@@ -20,7 +20,6 @@ public class CustomUnleashContextProvider implements UnleashContextProvider {
 
     @Override
     public UnleashContext getContext() {
-        System.out.println("Unleash context with userid " + requestContext.getUserId());
         return UnleashContext.builder()
                 .userId(requestContext.getUserId())
                 .build();
