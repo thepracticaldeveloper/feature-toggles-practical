@@ -24,7 +24,9 @@ public class DadJokeController {
     @GetMapping
     public ResponseEntity getDadJokes() {
         if (appConfiguration.dadJokesFunctionalityEnabled()) {
-            var dadJokes = dadJokesRepository.getDadJokes(false);
+            var dadJokes = dadJokesRepository.getDadJokes(
+                    appConfiguration.premiumJokesPermission()
+            );
             return appConfiguration.dadJokesV2Enabled() ?
                     ResponseEntity.ok(dadJokes) :
                     ResponseEntity.ok(mapToV1(dadJokes));

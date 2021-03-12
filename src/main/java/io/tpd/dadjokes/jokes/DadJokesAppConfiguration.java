@@ -21,4 +21,8 @@ public class DadJokesAppConfiguration {
         return unleash.isEnabled("DadJokesModelV2Toggle");
     }
 
+    public boolean premiumJokesPermission() {
+        return unleash.isEnabled("PremiumJokesToggle");
+    }
+
 }
