@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface DadJokesRepository {
 
-    List<DadJoke> getDadJokes();
+    List<DadJokeV2> getDadJokes(boolean includePremium);
 }
