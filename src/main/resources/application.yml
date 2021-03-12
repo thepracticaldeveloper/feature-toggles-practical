@@ -1,0 +1,5 @@
+unleash:
+  appName: "dad-jokes"
+  clientSecret: "overridden-with-env-var"
+  apiUrl: "https://app.unleash-hosted.com/bluechair/api/"
+  instanceId: "1"
