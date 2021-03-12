@@ -1,8 +1,5 @@
 package io.tpd.dadjokes.jokes;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,16 +24,10 @@ public class DadJokeController {
             var dadJokes = dadJokesRepository.getDadJokes(
                     appConfiguration.premiumJokesPermission()
             );
-            return appConfiguration.dadJokesV2Enabled() ?
-                    ResponseEntity.ok(dadJokes) :
-                    ResponseEntity.ok(mapToV1(dadJokes));
+            return ResponseEntity.ok(dadJokes);
         } else {
             return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).build();
         }
     }
 
-    private List<DadJoke> mapToV1(final List<DadJokeV2> dadJokes) {
-        return dadJokes.stream().map(j2 -> new DadJoke(j2.joke()))
-                .collect(Collectors.toList());
-    }
 }
